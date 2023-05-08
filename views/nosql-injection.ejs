@@ -1,0 +1,29 @@
+<%- include("templates/header") %> 
+
+<div class="container mt-5">
+  <h3><%= message %></h3>
+  <% if (error) { %>
+    <h1 style="color:darkred;">A NoSQL injection attack was detected!!</h1>
+  <% } else { %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Password</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(user => { %>
+          <tr>
+            <td><%= user._id %></td>
+            <td><%= user.username %></td>
+            <td><%= user.password %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+</div>
+
+<%- include("templates/footer") %> 
