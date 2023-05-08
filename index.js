@@ -244,7 +244,7 @@ app.get('/admin', async (req, res) => {
   // Check if the current user is an admin (assuming you have a 'type' field in your user schema)
   const currentUser = await userCollection.findOne({ email: req.session.user.email });
   if (currentUser.type !== 'admin') {
-    res.status(403).send('Forbidden');
+    res.status(403).send('403 Error, this page is Forbidden');
     return;
   }
 
